@@ -3,100 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Xylem Style Hub</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <title>Xylem Semi-RP Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #070b1a;
+      color: white;
+    }
+
+    /* TOP NOTICE */
+    .notice {
+      padding: 15px;
+      background: #0e1530;
+      text-align: center;
+    }
+
+    .notice-box {
+      max-width: 900px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    .header span {
+      color: #6a5cff;
+    }
+
+    .sub {
+      opacity: 0.6;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* CARD */
+    .card {
+      background: #121a2b;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      background: #18233a;
+    }
+
+    .icon {
+      font-size: 22px;
+    }
+
+    .card h2 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      opacity: 0.6;
+      font-size: 13px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #8a7dff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* PAGES */
+    .page {
+      display: none;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #8a7dff;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- TOP NOTICE -->
-  <div class="notice">
-    <div class="notice-box">
-      <h3>Important Notice</h3>
-      <p>
-        This is a community-run hub. It provides access to server tools, guides, and resources.
-        Some features may be limited depending on server status.
-      </p>
-    </div>
+<div class="notice">
+  <div class="notice-box">
+    <h3>Important Notice</h3>
+    <p>This is a community-run hub. It provides access to server tools, guides, and resources.</p>
+  </div>
+</div>
+
+<div class="header">
+  <h1><span>Xylem</span> Semi-RP</h1>
+  <div class="sub">Your gateway to the network</div>
+</div>
+
+<!-- HOME GRID -->
+<div id="home" class="grid active">
+
+  <div class="card" onclick="openPage('rules')">
+    <div class="icon">⚖️</div>
+    <h2>Server Rules</h2>
+    <p>View gameplay rules, guidelines, and enforcement policies.</p>
+    <a>Open</a>
   </div>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1><span>Xylem</span> Semi-RP</h1>
-    <p class="sub">Your gateway to the network</p>
-  </header>
+  <div class="card" onclick="openPage('store')">
+    <div class="icon">🛒</div>
+    <h2>Store</h2>
+    <p>Purchase ranks, perks, and in-game upgrades.</p>
+    <a>Visit</a>
+  </div>
 
-  <!-- MAIN GRID -->
-  <main class="grid">
+  <div class="card" onclick="openPage('discord')">
+    <div class="icon">💬</div>
+    <h2>Discord</h2>
+    <p>Join the community chat and announcements.</p>
+    <a>Join</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">⚖️</div>
-      <h2>Server Rules</h2>
-      <p>View gameplay rules, guidelines, and enforcement policies.</p>
-      <a href="#">Open</a>
-    </div>
+  <div class="card" onclick="openPage('panel')">
+    <div class="icon">👤</div>
+    <h2>Player Panel</h2>
+    <p>Manage your stats, profile, and account tools.</p>
+    <a>Open</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">🛒</div>
-      <h2>Store</h2>
-      <p>Purchase ranks, perks, and in-game upgrades.</p>
-      <a href="#">Visit</a>
-    </div>
+  <div class="card" onclick="openPage('info')">
+    <div class="icon">🖥️</div>
+    <h2>Server Info</h2>
+    <p>View server status, IP, and connection details.</p>
+    <a>View</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">💬</div>
-      <h2>Discord</h2>
-      <p>Join the community chat and announcements.</p>
-      <a href="#">Join</a>
-    </div>
+  <div class="card" onclick="openPage('mods')">
+    <div class="icon">🔧</div>
+    <h2>Mod List</h2>
+    <p>Browse active mods, plugins, and server content.</p>
+    <a>View</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">👤</div>
-      <h2>Player Panel</h2>
-      <p>Manage your stats, profile, and account tools.</p>
-      <a href="#">Open</a>
-    </div>
+  <div class="card" onclick="openPage('status')">
+    <div class="icon">📊</div>
+    <h2>Server Status</h2>
+    <p>Live player count and uptime monitoring.</p>
+    <a>Check</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">🖥️</div>
-      <h2>Server Info</h2>
-      <p>View server status, IP, and connection details.</p>
-      <a href="#">View</a>
-    </div>
+  <div class="card" onclick="openPage('faq')">
+    <div class="icon">❓</div>
+    <h2>FAQ</h2>
+    <p>Common questions and setup help guides.</p>
+    <a>Open</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">🔧</div>
-      <h2>Mod List</h2>
-      <p>Browse active mods, plugins, and server content.</p>
-      <a href="#">View</a>
-    </div>
+  <div class="card" onclick="openPage('support')">
+    <div class="icon">🎧</div>
+    <h2>Support</h2>
+    <p>Contact staff for help and assistance.</p>
+    <a>Get Help</a>
+  </div>
 
-    <div class="card">
-      <div class="icon">📊</div>
-      <h2>Server Status</h2>
-      <p>Live player count and uptime monitoring.</p>
-      <a href="#">Check</a>
-    </div>
+</div>
 
-    <div class="card">
-      <div class="icon">❓</div>
-      <h2>FAQ</h2>
-      <p>Common questions and setup help guides.</p>
-      <a href="#">Open</a>
-    </div>
+<!-- PAGES -->
 
-    <div class="card">
-      <div class="icon">🎧</div>
-      <h2>Support</h2>
-      <p>Contact staff for help and assistance.</p>
-      <a href="#">Get Help</a>
-    </div>
+<div id="rules" class="page">
+  <h1>Server Rules</h1>
+  <p>Rules content goes here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
 
-  </main>
+<div id="store" class="page">
+  <h1>Store</h1>
+  <p>Store content goes here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
 
-  <footer>
-    © 2026 Community Hub • Not affiliated with any official server
-  </footer>
+<div id="discord" class="page">
+  <h1>Discord</h1>
+  <p>Join our Discord server.</p>
+  <div class="back" onclick="window.open('https://discord.gg/','_blank')">Join →</div>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
 
-  <script src="script.js"></script>
+<div id="panel" class="page">
+  <h1>Player Panel</h1>
+  <p>Player tools go here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<div id="info" class="page">
+  <h1>Server Info</h1>
+  <p>Server details go here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<div id="mods" class="page">
+  <h1>Mod List</h1>
+  <p>Mods go here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<div id="status" class="page">
+  <h1>Server Status</h1>
+  <p>Live status goes here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<div id="faq" class="page">
+  <h1>FAQ</h1>
+  <p>FAQ content goes here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<div id="support" class="page">
+  <h1>Support</h1>
+  <p>Support info goes here...</p>
+  <div class="back" onclick="goHome()">← Back</div>
+</div>
+
+<footer>© 2026 Community Hub • Not affiliated with any official server</footer>
+
+<script>
+function openPage(id) {
+  document.getElementById('home').classList.remove('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goHome() {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('home').classList.add('active');
+}
+</script>
+
 </body>
 </html>
