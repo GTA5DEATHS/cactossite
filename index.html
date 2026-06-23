@@ -6,98 +6,194 @@
 <title>Cactos</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: white;
+body{
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#0b0f14;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
-.box {
-    width: 90%;
-    max-width: 450px;
-    padding: 30px;
-    text-align: center;
-    background: #151515;
-    border: 1px solid #333;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,.4);
+/* Animated background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,150,255,.15), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(0,255,180,.10), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(100,100,255,.12), transparent 30%);
+    animation:float 12s ease-in-out infinite alternate;
 }
 
-h1 {
-    margin-top: 0;
-    margin-bottom: 20px;
+@keyframes float{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-30px);}
 }
 
-.section {
-    margin-top: 20px;
+.card{
+    position:relative;
+    z-index:1;
+    width:90%;
+    max-width:700px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(18,22,28,.85);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 0 40px rgba(0,0,0,.5);
 }
 
-.section h2 {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #ccc;
+.logo{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:20px;
+    background:linear-gradient(135deg,#00aaff,#00ffcc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    font-weight:bold;
+    color:#081018;
 }
 
-a {
-    color: #4da3ff;
-    text-decoration: none;
+h1{
+    text-align:center;
+    margin-top:20px;
+    font-size:42px;
 }
 
-a:hover {
-    text-decoration: underline;
+.tagline{
+    text-align:center;
+    color:#9ea7b3;
+    margin-top:10px;
 }
 
-.project {
-    color: #aaa;
-    font-size: 14px;
+.section{
+    margin-top:35px;
 }
 
-.discord-btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 10px 18px;
-    background: #5865F2;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
+.section h2{
+    margin-bottom:12px;
+    color:#d4d9df;
 }
 
-.discord-btn:hover {
-    opacity: 0.9;
-    text-decoration: none;
+.contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.contact-list a{
+    color:#4da3ff;
+    text-decoration:none;
+}
+
+.contact-list a:hover{
+    text-decoration:underline;
+}
+
+.project-card{
+    background:#10151c;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:12px;
+    padding:15px;
+}
+
+.project-title{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.project-desc{
+    color:#9ea7b3;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.discord-btn{
+    display:inline-block;
+    padding:10px 18px;
+    background:#5865F2;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.discord-btn:hover{
+    opacity:.9;
+}
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#666;
+    font-size:13px;
 }
 </style>
 </head>
-
 <body>
-<div class="box">
+
+<div class="card">
+
+    <div class="logo">C</div>
 
     <h1>Cactos</h1>
 
+    <p class="tagline">
+        Projects, Communities, and Services.
+    </p>
+
     <div class="section">
-        <h2>Emails</h2>
-        <p><a href="mailto:cactos@c-actos.nl">cactos@c-actos.nl</a></p>
-        <p><a href="mailto:support@c-actos.nl">support@c-actos.nl</a></p>
+        <h2>Contact</h2>
+
+        <div class="contact-list">
+            <a href="mailto:cactos@c-actos.nl">
+                cactos@c-actos.nl
+            </a>
+
+            <a href="mailto:support@c-actos.nl">
+                support@c-actos.nl
+            </a>
+        </div>
     </div>
 
     <div class="section">
         <h2>Current Projects</h2>
-        <p class="project">TDS Helpers</p>
-        <a class="discord-btn" href="https://discord.gg/e5Vn8JU5qW" target="_blank">
-            Join Discord
-        </a>
+
+        <div class="project-card">
+            <div class="project-title">
+                TDS Helpers
+            </div>
+
+            <div class="project-desc">
+                Community support and resources for TDS players.
+            </div>
+
+            <a class="discord-btn"
+               href="https://discord.gg/e5Vn8JU5qW"
+               target="_blank">
+               Join Discord
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Cactos • c-actos.nl
     </div>
 
 </div>
+
 </body>
 </html>
